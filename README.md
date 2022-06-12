@@ -1,8 +1,29 @@
-## sbt project compiled with Scala 3
+# bing
+### address database
 
-### Usage
+This library provides an in-memory storage of addresses.
+It enables you to send existing addresses to new places in memory.
+You can run through all of them if you wish.
+No thread safety is at your disposal.
+Start with:
 
-This is a normal sbt project. You can compile code with `sbt compile`, run it with `sbt run`, and `sbt console` will start a Scala 3 REPL.
+```scala
+import memmemov.bingjvm
 
-For more information on the sbt-dotty plugin, see the
-[scala3-example-project](https://github.com/scala/scala3-example-project/blob/main/README.md).
+val inventory: bingjvm.Inventory[bingjvm.Entry] = new bingjvm.Memory
+val firstEntry: bingjvm.Entry = memory.start
+
+inventory.append(firstEntry) match
+    case inventory.Appended(secondEntry) =>
+      inventory.append(secondEntry)
+      ()
+    case _ =>
+      ()
+
+inventory.foreach { entry: bing.Entry =>
+  entry.foreach { b: bingjvm.UByte =>
+    // use the byte
+    ()
+  }
+}
+```
