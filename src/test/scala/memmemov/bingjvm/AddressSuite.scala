@@ -27,6 +27,16 @@ class AddressSuite extends munit.FunSuite:
     }
   }
 
+  test("Address gets incremented to a big value") {
+
+    val incrementedAddress = (1 until 2).foldLeft(new Address(List(UByte(1),UByte(1)))) { (address, _) =>
+      address.increment
+    }
+
+    println(incrementedAddress)
+
+  }
+
   test("Address provides its length") {
     (0 to 255).map(n => List.empty[UByte].padTo(n * 100, UByte(n))).foreach { indices =>
       assert(
