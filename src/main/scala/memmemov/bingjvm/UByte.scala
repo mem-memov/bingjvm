@@ -18,6 +18,10 @@ class UByte(private val byte: Byte) extends AnyVal:
     else
       int + 256
 
+  override def toString: String =
+
+    this.toInt.toString()
+
 object UByte:
 
   val MinValue = new UByte(0.toByte)

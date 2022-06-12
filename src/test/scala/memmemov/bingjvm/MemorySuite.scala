@@ -21,7 +21,7 @@ class MemorySuite extends munit.FunSuite:
 
     val start = memory.start
 
-    val addresses: List[Address] = (0 to 1275).foldLeft((start, List(start))) {
+    val addresses: List[Address] = (0 to 1000).foldLeft((start, List(start))) {
       case ((previous, addresses), _) =>
         val next = previous.increment
         (next, next :: addresses)

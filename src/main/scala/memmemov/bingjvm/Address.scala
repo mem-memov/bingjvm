@@ -57,7 +57,7 @@ class Address(
             (index :: accumulator, false, false)
     }
 
-    val resultIndices = if hasOverflow then UByte(1) :: accumulator.reverse else accumulator.reverse
+    val resultIndices = if hasOverflow then UByte(1) :: accumulator else accumulator
 
     new Address(resultIndices)
 
