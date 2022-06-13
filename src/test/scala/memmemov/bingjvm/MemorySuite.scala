@@ -27,7 +27,7 @@ class MemorySuite extends munit.FunSuite:
         (next, next :: addresses)
     }._2.reverse
 
-    val destinations = addresses.map { content =>
+    val destinations: List[Address] = addresses.map { content =>
       memory.append(content) match
         case memory.Appended(destination) =>
           destination
@@ -35,15 +35,16 @@ class MemorySuite extends munit.FunSuite:
           println(content)
           println(problem)
           assert(false)
+          new Address(List.empty)
     }
 
-//    destinations.zip(addresses).foreach {
-//      case (origin, expected) =>
-//        memory.read(origin) match
-//          case memory.ReadResult(content) =>
-//            assert(content != expected)
-//          case _ =>
-//            assert(false)
-//    }
+    destinations.zip(addresses).foreach {
+      case (origin, expected) =>
+        memory.read(origin) match
+          case memory.ReadResult(obtained) =>
+            assertEquals(obtained, expected)
+          case _ =>
+            assert(false)
+    }
 
   }

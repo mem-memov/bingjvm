@@ -11,10 +11,9 @@ private[bingjvm] class Store(
   def write(destination: UByte, content: Address): Write =
 
     if content.hasLength(blocks.length) then
-      content.foreach { part =>
-        blocks.foreach { block =>
-          block.write(destination, part)
-        }
+      content.zipWithIndex.foreach {
+        case (contentPart, blockIndex) =>
+          blocks(blockIndex).write(destination, contentPart)
       }
       Written
     else
@@ -27,5 +26,5 @@ private[bingjvm] class Store(
         block.read(origin) :: parts
     }
 
-    new Address(parts)
+    new Address(parts.reverse)
 

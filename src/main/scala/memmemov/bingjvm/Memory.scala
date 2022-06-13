@@ -42,6 +42,7 @@ class Memory extends Inventory[Address]:
             NotUpdated
 
   override def read(origin: Address): Read =
+
     root.read(origin) match
       case root.ReadResult(content) =>
         ReadResult(content.trimBig)
