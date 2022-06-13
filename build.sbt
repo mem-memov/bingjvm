@@ -11,12 +11,6 @@ publishTo := sonatypePublishToBundle.value
 scalaVersion := scala3Version
 ThisBuild / versionScheme := Some("early-semver")
 
-// documentation
-
-enablePlugins(ParadoxPlugin, ParadoxSitePlugin)
-paradoxTheme := Some(builtinParadoxTheme("generic"))
-//Paradox / sourceDirectory := sourceDirectory.value / "documentation"
-
 libraryDependencies += "org.scalameta" %% "munit" % "0.7.29" % Test
 
 
