@@ -1,4 +1,4 @@
-package memmemov.bingjvm
+package net.mem_memov.bingjvm
 
 private[bingjvm] class Stock(
   private val elements: Array[Element]

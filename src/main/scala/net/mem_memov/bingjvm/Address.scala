@@ -1,4 +1,4 @@
-package memmemov.bingjvm
+package net.mem_memov.bingjvm
 
 class Address(
   private[Address] val indices: List[UByte]

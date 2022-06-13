@@ -1,4 +1,4 @@
-package memmemov.bingjvm
+package net.mem_memov.bingjvm
 
 private[bingjvm] class Store(
   private val blocks: Array[Block]

@@ -8,20 +8,22 @@ No thread safety is at your disposal.
 Start with:
 
 ```scala
-import memmemov.bingjvm
 
-val inventory: bingjvm.Inventory[bingjvm.Entry] = new bingjvm.Memory
-val firstEntry: bingjvm.Entry = memory.start
+import net.mem_memov.bingjvm.{Entry, Inventory, Memory, UByte}
+
+val inventory: Inventory[Entry] = new Memory
+val firstEntry: Entry = memory.start
 
 inventory.append(firstEntry) match
-    case inventory.Appended(secondEntry) =>
-      inventory.append(secondEntry)
-      ()
-    case _ =>
-      ()
+case inventory.Appended(secondEntry)
+=>
+inventory.append(secondEntry)
+()
+case _ =>
+  ()
 
 inventory.foreach { entry: bing.Entry =>
-  entry.foreach { b: bingjvm.UByte =>
+  entry.foreach { b: UByte =>
     // use the byte
     ()
   }

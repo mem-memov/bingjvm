@@ -1,4 +1,4 @@
-package memmemov.bingjvm
+package net.mem_memov.bingjvm
 
 class AddressSuite extends munit.FunSuite:
 

@@ -1,4 +1,4 @@
-package memmemov.bingjvm
+package net.mem_memov.bingjvm
 
 class UByte(private val byte: Byte) extends AnyVal:
 
