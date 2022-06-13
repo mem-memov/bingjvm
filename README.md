@@ -7,20 +7,18 @@ You can run through all of them if you wish.
 No thread safety is at your disposal.
 Start with:
 
-```scala
-
+```
 import net.mem_memov.bingjvm.{Entry, Inventory, Memory, UByte}
 
 val inventory: Inventory[Entry] = new Memory
 val firstEntry: Entry = memory.start
 
 inventory.append(firstEntry) match
-case inventory.Appended(secondEntry)
-=>
-inventory.append(secondEntry)
-()
-case _ =>
-  ()
+  case inventory.Appended(secondEntry) =>
+    inventory.append(secondEntry)
+    ()
+  case _ =>
+    ()
 
 inventory.foreach { entry: bing.Entry =>
   entry.foreach { b: UByte =>
@@ -33,4 +31,5 @@ inventory.foreach { entry: bing.Entry =>
 ```bash
 sbt test
 sbt publishLocal
+sbt publishSigned
 ```

@@ -20,6 +20,7 @@ lazy val root = project
         url("http://mem-memov.net")
       )
     ),
+    ThisBuild / sonatypeCredentialHost := "s01.oss.sonatype.org",
     sonatypeCredentialHost := "s01.oss.sonatype.org",
     sonatypeRepository := "https://s01.oss.sonatype.org/service/local",
     versionScheme := Some("early-semver"),
@@ -27,6 +28,8 @@ lazy val root = project
 
     // publish to the sonatype repository
     publishTo := sonatypePublishTo.value,
+
+
 
 
     scalaVersion := scala3Version,
