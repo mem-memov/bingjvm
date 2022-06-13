@@ -1,10 +1,3 @@
-# bing
-### address database
-
-This library provides an in-memory storage of addresses.
-It enables you to send existing addresses to new places in memory.
-You can run through all of them if you wish.
-No thread safety is at your disposal.
 Start with:
 
 ```scala
@@ -28,10 +21,4 @@ inventory.foreach { entry: bing.Entry =>
     ()
   }
 }
-```
-
-```bash
-sbt test
-sbt publishLocal
-sbt previewAuto
 ```
