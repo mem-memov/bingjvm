@@ -62,8 +62,8 @@ class Address(
     new Address(resultIndices)
 
   override def foreach(f: UByte => Unit): Unit = indices.foreach(f)
-  
-  def zipWithIndex: List[(UByte, Int)] = indices.zipWithIndex
+
+  private[bingjvm] def zipWithIndex: List[(UByte, Int)] = indices.zipWithIndex
 
   private[bingjvm] sealed trait Shorten
   private[bingjvm] object NotShortened extends Shorten

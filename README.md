@@ -27,3 +27,8 @@ inventory.foreach { entry: bing.Entry =>
   }
 }
 ```
+
+```bash
+sbt test
+sbt publishLocal
+```
